@@ -1,3 +1,28 @@
+#Jarrel's Fork
+
+"Fixed" some issues https://github.com/dzhu/myo-raw/issues/2 
+
+Not really a fix, just duct taping over it so I can use it functionally.
+
+Added some basic training examples - 
+FIST = 5
+PINKY = 4
+SPREAD = 3
+FLEX = 2
+EXTEND = 1
+
+Wear your myo with the logo facing front in the anatomical position, in the midline of your arm. USB facing up. Right arm for me. 
+YMMV so train it yourself. 
+
+Added media keys 
+FIST + SPREAD = Play
+FIST + FLEX = Back
+FIST + EXTEND = Next
+If you do FIST and nothing it will reset when you 'rest'
+
+I think you need a media-enabled keyboard for it to work but I may be wrong. 
+
+
 # Overview
 
 This project provides an interface to communicate with the Thalmic Myo,

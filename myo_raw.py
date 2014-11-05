@@ -40,7 +40,7 @@ class Packet(object):
 class BT(object):
     '''Implements the non-Myo-specific details of the Bluetooth protocol.'''
     def __init__(self, tty):
-        self.ser = serial.Serial(port=tty, baudrate=9600)
+        self.ser = serial.Serial(port=tty, baudrate=9600, dsrdtr=1)
         self.buf = []
         self.lock = threading.Lock()
         self.handlers = []
@@ -48,7 +48,11 @@ class BT(object):
     ## internal data-handling methods
     def recv_packet(self, timeout=None):
         t0 = time.time()
-        self.ser.timeout = None
+        try:
+            self.ser.timeout = timeout
+        except:
+            print('recv timeout error')
+            pass
         while timeout is None or time.time() < t0 + timeout:
             if timeout is not None: self.ser.timeout = t0 + timeout - time.time()
             c = self.ser.read()
